@@ -9,6 +9,7 @@ public class SearchInsert {
         int target = 0;
         System.out.println(searchInsert(nums,target));
     }
+
     public static int searchInsert(int[] nums, int target) {
         int n = nums.length;
 
