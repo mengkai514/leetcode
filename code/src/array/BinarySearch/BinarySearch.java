@@ -1,4 +1,4 @@
-package BinarySearch;
+package array.BinarySearch;
 
 /**
  * 704. 二分查找

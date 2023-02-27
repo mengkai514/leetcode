@@ -1,4 +1,4 @@
-package BinarySearch;
+package array.BinarySearch;
 
 /**
  * 35. 搜索插入位置
