@@ -1,5 +1,8 @@
 package array.minSubArrayLen;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 904.水果成篮
  */
@@ -24,6 +27,23 @@ public class TotalFruits {
             }
             //记录种类
             cnt[fruits[right]]++;
+            res = Math.max(res,right-left+1);
+        }
+        return res;
+    }
+
+    public static int totalFruit2(int[] fruits) {
+        int res = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int left = 0,right = 0;right < fruits.length;right++){
+                map.put(fruits[right],map.getOrDefault(fruits[right], 0) + 1);
+                while (map.size() > 2){
+                    map.put(fruits[left], map.getOrDefault(fruits[left], 0) - 1);
+                    if (map.get(fruits[left]) == 0){
+                        map.remove(fruits[left]);
+                    }
+                    left++;
+                }
             res = Math.max(res,right-left+1);
         }
         return res;
