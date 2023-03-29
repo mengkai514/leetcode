@@ -52,4 +52,16 @@ public class SearchBST {
             return searchBST(root.right, val);
         }
     }
+
+    // 递归，普通二叉树
+    public TreeNode searchBST4(TreeNode root, int val) {
+        if (root == null || root.val == val) {
+            return root;
+        }
+        TreeNode left = searchBST(root.left, val);
+        if (left != null) {
+            return left;
+        }
+        return searchBST(root.right, val);
+    }
 }
