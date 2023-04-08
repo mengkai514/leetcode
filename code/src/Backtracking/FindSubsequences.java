@@ -1,9 +1,6 @@
 package Backtracking;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * 491. 递增子序列
@@ -12,7 +9,6 @@ public class FindSubsequences {
     List<List<Integer>> result = new ArrayList<>();
     LinkedList<Integer> paths = new LinkedList<>();
     public List<List<Integer>> findSubsequences(int[] nums) {
-        Arrays.sort(nums);
         getFindSubsequences(nums, 0);
         return result;
     }
@@ -21,11 +17,11 @@ public class FindSubsequences {
         if (paths.size() >= 2) {
             result.add(new ArrayList<>(paths));
         }
-        int[] used = new int[201];
+        HashMap<Integer,Integer> map = new HashMap<>();
         for (int i = startIndex; i < nums.length; i++) {
             if (!paths.isEmpty() && nums[i] < paths.getLast() ||
-                    (used[nums[i] + 100] == 1)) continue;
-            used[nums[i] + 100] = 1;
+                    (map.getOrDefault( nums[i],0 ) >=1)) continue;
+            map.put(nums[i],map.getOrDefault( nums[i],0 )+1);
             paths.add(nums[i]);
             getFindSubsequences(nums, i + 1);
             paths.removeLast();
