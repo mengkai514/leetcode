@@ -18,6 +18,10 @@ public class FindTargetSumWays {
         dp[0] = 1;
         for (int i = 0; i < nums.length; i++) {
             for (int j = size; j >= nums[i]; j--) {
+                // 递推公式
+                // 遍历到i物品，此时dp[j]有两种来源：
+                // 不放入i物品，填满容量为j的背包的方式为,上一层的值：dp[j]
+                // 放入i物品，填满容量为j的背包的方式为，上一层减掉物品重量的值：dp[j - nums[i]]
                 dp[j] += dp[j - nums[i]];
             }
         }
