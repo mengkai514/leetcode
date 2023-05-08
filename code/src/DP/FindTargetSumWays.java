@@ -14,6 +14,8 @@ public class FindTargetSumWays {
         if ((target + sum) % 2 != 0) return 0;
         int size = (target + sum) / 2;
         if(size < 0) size = -size;
+
+        // dp[j]含义：填满容量为j的包，有dp[j]种方式。
         int[] dp = new int[size + 1];
         dp[0] = 1;
         for (int i = 0; i < nums.length; i++) {
