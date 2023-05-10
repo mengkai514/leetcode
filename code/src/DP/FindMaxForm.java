@@ -21,10 +21,8 @@ public class FindMaxForm {
             for (int j = m; j >= numZero; j--) {
                 for (int k = n; k >= numOne; k--) {
                     dp[j][k] = Math.max(dp[j][k], dp[j - numZero][k - numOne] + 1);
-                    System.out.print(dp[j][k]);
                 }
             }
-            System.out.println();
         }
         return dp[m][n];
     }
